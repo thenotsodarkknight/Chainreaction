@@ -5,7 +5,9 @@ struct cs101
     static int a[9][6],p;
     cs101()
     {
-        for(int i=0;i<9;i++)for(int j=0;j<6;j++)a[i][j]=0;
+        for(int i=0;i<9;i++)
+            for(int j=0;j<6;j++)
+                a[i][j]=0;
     }
     void check(int x, int y)
     {
@@ -26,7 +28,8 @@ struct cs101
                 a[x][y-1]=-abs(a[x][y-1])-1 ;
                 a[x+1][y]=-abs(a[x+1][y])-1 ;
                 a[x][y+1]=-abs(a[x][y+1])-1 ;
-            }check(x,y+1) ;
+            }
+            check(x,y+1) ;
             check(x+1,y) ;
             check(x,y-1) ;
             check(x-1,y) ;
@@ -98,12 +101,9 @@ struct cs101
         check(x,y);
         for(int i =0; i<9;i++){
             for(int j=0;j<6;j++)
-            {
                 cout<<a[i][j]<<" ";
-            }cout<<endl;}
-        
+        cout<<endl;
     }
-    
 };
 int cs101::a[9][6]={{0,0}};
 int cs101::p=0;
@@ -121,18 +121,17 @@ int main ()
         {cout<<"Illegal move"<<endl;continue;}
         cin>>y;
         if(y>5||y<0)
-        {cout<<"Illegal move"<<endl;continue;}
+        {
+            cout<<"Illegal move"<<endl;
+            continue;
+        }
         cs101::p++;
         obj.abeen(x,y);cout<<endl;
         if(cs101::p>2)
             for(int i =0;i<9;i++)
-            {
                 for(int j=0;j<6;j++)
-                {
                     s=s+cs101::a[i][j];
-                }
-            }
-        if(cs101::p==abs(s))break;
-        
+        if(cs101::p==abs(s))
+            break;
     }
 }
